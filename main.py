@@ -5,10 +5,8 @@ from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
 
-
 def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
-
 
 def find_mismatch(text):
     opening_brackets_stack = []
@@ -20,9 +18,9 @@ def find_mismatch(text):
             if not opening_brackets_stack or not are_matching(opening_brackets_stack[-1].char, next):
                 return i+1
 
-    opening_brackets_stack.pop()
+            opening_brackets_stack.pop()
     if opening_brackets_stack:
-        return opening_brackets_stack[0].position
+        return opening_brackets_stack[-1].position
     return "Success"
 
 def main():
@@ -34,9 +32,8 @@ def main():
     else:
         ievade = input()
     mismatch = find_mismatch(ievade)
-    
     if mismatch == "Success":
-        print("Success")
+        print(mismatch)
     else:
         print(mismatch)
 
