@@ -29,10 +29,10 @@ def main():
     if text == "F":
         file = input()
         with open(file, "r") as f:
-            text = f.readline().strip()
+            ievade = f.readline().strip()
     else:
-        text = input()
-    mismatch = find_mismatch(text)
+        ievade = input()
+    mismatch = find_mismatch(ievade)
     
     if mismatch == "Success":
         print("Success")
