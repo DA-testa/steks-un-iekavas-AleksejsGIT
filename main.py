@@ -26,9 +26,19 @@ def find_mismatch(text):
 
 def main():
     text = input()
+    if text == "F":
+        file = input()
+        with open(file, "r") as f:
+            text = f.readline().strip()
+    else:
+        text = input()
     mismatch = find_mismatch(text)
-    # Printing answer, write your code here
-
+    
+    if mismatch == "Success":
+        print("Success")
+    else:
+        print(mismatch)
 
 if __name__ == "__main__":
     main()
+
